@@ -803,7 +803,7 @@ input[type=range]::-ms-thumb {
 	cursor: pointer;
 }
 
-@media only screen and (max-width: 900px) {
+@media all and (max-width: 900px), screen and (-webkit-min-device-pixel-ratio: 2.0) and (max-width: 1800px) {
 	html {
 		font-size: 80%;
 	}
@@ -813,7 +813,7 @@ input[type=range]::-ms-thumb {
 	}
 }
 
-@media only screen and (max-width: 600px) {
+@media all and (max-width: 600px), screen and (-webkit-min-device-pixel-ratio: 3.0) and (max-width: 1800px), screen and (-webkit-min-device-pixel-ratio: 2.0) and (max-width: 1200px) {
 	html {
 		font-size: 60%;
 	}
