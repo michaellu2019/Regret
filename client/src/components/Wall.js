@@ -123,6 +123,8 @@ class Wall extends React.Component {
                     hitboards: this.hitboards,
                     bufferingCounter: 0
                 });
+
+                this.props.changeBufferingStatus(false);
             } else {
                 console.log('Loading failed...', responseData);
 				this.setState({

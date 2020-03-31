@@ -16,10 +16,10 @@ def login():
 	user_dict = request.get_json()['user']
 	user = User.query.filter_by(fb_id = user_dict['userId']).first()
 	if 'unauth_user_' in user_dict['userId']:
-		max_num_pieces = 1
+		max_num_pieces = 3
 		authenticated = False
 	else:
-		max_num_pieces = 3
+		max_num_pieces = 5
 		authenticated = True
 
 	if user:

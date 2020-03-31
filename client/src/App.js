@@ -12,7 +12,8 @@ class App extends React.Component {
         this.state = {
             loggedIn: false,
             serverRoute: 'http://localhost:5000',
-            showAddButtons: false,
+            showArtButtons: false,
+            buffering: true,
             pieceAdded: true,
             mode: 'view',
             addingImg: false,
@@ -38,6 +39,7 @@ class App extends React.Component {
         this.hidePopUpWindow = this.hidePopUpWindow.bind(this);
         this.updateUser = this.updateUser.bind(this);
         this.changeWall = this.changeWall.bind(this);
+        this.changeBufferingStatus = this.changeBufferingStatus.bind(this);
     }
 
     toggleMode(mode) {
@@ -50,7 +52,7 @@ class App extends React.Component {
 
         if (this.state.user.numPieces < this.state.user.maxNumPieces) {
             this.setState({
-                showAddButtons: !this.state.showAddButtons,
+                showArtButtons: !this.state.showArtButtons,
                 mode: mode
             });
         } else if (mode != 'view' && this.state.user.numPieces >= this.state.user.maxNumPieces && this.state.user.fbId.includes('unauth_user')) {
@@ -122,7 +124,7 @@ class App extends React.Component {
             imgToAddSrc: src,
             imgToAddPlaced: false,
             addingImg: true,
-            showAddButtons: false,
+            showArtButtons: false,
             pieceAdded: false
         });
     }
@@ -142,7 +144,7 @@ class App extends React.Component {
 
     toggleShowOptions() {
         this.setState({
-            showAddButtons: !this.state.showAddButtons
+            showArtButtons: !this.state.showArtButtons
         });
     }
 
@@ -173,6 +175,12 @@ class App extends React.Component {
         this.toggleMode('view');
     }
 
+    changeBufferingStatus(status) {
+        this.setState({
+            buffering: status
+        });
+    }
+
     render() {
         return (
             <div className = "wrapper">
@@ -190,17 +198,17 @@ class App extends React.Component {
 
                 <main className = "primary">
                     <article>
-                        <Wall id = {0} currentWall = {this.state.currentWall} user = {this.state.user} updateUser = {this.updateUser} imgToAddSrc = {this.state.imgToAddSrc} imgToAddPlaced = {this.state.imgToAddPlaced} pieceAddedToWall = {this.pieceAddedToWall} />
-                        {this.state.pieceAdded ?
+                        <Wall id = {0} currentWall = {this.state.currentWall} user = {this.state.user} updateUser = {this.updateUser} imgToAddSrc = {this.state.imgToAddSrc} imgToAddPlaced = {this.state.imgToAddPlaced} pieceAddedToWall = {this.pieceAddedToWall} changeBufferingStatus = {this.changeBufferingStatus} />
+                        {this.state.pieceAdded && !this.state.buffering ?
                             <div>
-                                <div className = {this.state.showAddButtons ? "art-options" : "art-options hide"}>
+                                <div className = {this.state.showArtButtons ? "art-options" : "art-options hide"}>
                                     <span>Logged in as {this.state.user.username}</span> <br />
                                     <span>Additions Remaining: {this.state.user.maxNumPieces - this.state.user.numPieces}</span>
-                                    <a className = "art-option-button" href = "#" onClick = {() => this.toggleMode('doodle')}>Add Doodle</a>
-                                    <a className = "art-option-button" href = "#" onClick = {() => this.toggleMode('img')}>Add Image</a>
-                                    <a className = "art-option-button" href = "#" onClick = {this.changeWall}>Next Wall</a>
+                                    <a className = "art-option-button" onClick = {() => this.toggleMode('doodle')}>Add Doodle</a>
+                                    <a className = "art-option-button" onClick = {() => this.toggleMode('img')}>Add Image</a>
+                                    <a className = "art-option-button" onClick = {this.changeWall}>Next Wall</a>
                                 </div>
-                                <a className = {this.state.showAddButtons ? "round-button active" : "round-button"} href = "#" onClick = {() => this.toggleShowOptions()}>+</a>
+                                <a className = {this.state.showArtButtons ? "round-button active" : "round-button"} onClick = {() => this.toggleShowOptions()}>+</a>
                             </div>
                         : ""}
                     </article>
@@ -215,8 +223,8 @@ class App extends React.Component {
                             {this.state.user.numPieces >= this.state.user.maxNumPieces ? <span className = "close-window-button" onClick = {this.hidePopUpWindow}>+</span> : ""}
                             <span className = "heading">{this.state.user.numPieces < this.state.user.maxNumPieces ? "Would You Like to Login with Facebook?" : "Login to Contribute More to the Wall!" }</span>
                             <div className = "force-login-button-container">
-                                <FacebookLoginButton login = {this.login}/>
-                                {this.state.user.numPieces < this.state.user.maxNumPieces ? <a className = "button" href = "#" onClick = {this.unAuthLogin}>Hahaha... No.</a> : ""}
+                                {this.state.user.numPieces < this.state.user.maxNumPieces ? <a className = "button" onClick = {this.unAuthLogin}>Hahaha... No.</a> : ""}
+                                {/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? "Sorry, you can't login on a mobile device..." : <FacebookLoginButton login = {this.login}/>}
                             </div>
                         </div>
                     </article>
