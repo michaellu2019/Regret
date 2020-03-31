@@ -49,6 +49,7 @@ def login():
 			return jsonify({'status': 'success', 'msg': 'new user', 'data': {'user': new_user}})
 		except SQLAlchemyError as ex:
 			print('Error: ', ex)
+			db.session.rollback()
 			return jsonify({'status': 'fail', 'msg': 'failed to update databases', 'data': {}})
 		
 @app.route('/add_piece', methods = ['GET', 'POST'])
@@ -88,6 +89,7 @@ def add_piece():
 			return jsonify({'status': 'success', 'msg': 'new user', 'data': {'user': updated_user, 'piece': updated_piece}})
 		except SQLAlchemyError as ex:
 			print('Error: ', ex)
+			db.session.rollback()
 			return jsonify({'status': 'fail', 'msg': 'failed to update databases', 'data': {}})
 	return jsonify({'status': 'fail', 'msg': 'unauthenticated user', 'data': {}})
 
@@ -147,5 +149,6 @@ def like_piece():
 			return jsonify({'status': 'success', 'msg': 'new user', 'data': {'piece': updated_piece}})
 		except SQLAlchemyError as ex:
 			print('Error: ', ex)
+			db.session.rollback()
 			return jsonify({'status': 'fail', 'msg': 'failed to update databases', 'data': {}})
 	return jsonify({'status': 'fail', 'msg': 'unidentified piece', 'data': {}})
