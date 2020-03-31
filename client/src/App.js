@@ -45,7 +45,7 @@ class App extends React.Component {
     toggleMode(mode) {
         if ((mode == "doodle") && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             this.setState({
-                errorWindowMsg: 'Sorry, you\'re going to have to use a computer to do this, because I can\'t program on Mobile Devices for shit!'
+                errorWindowMsg: 'Sorry, you\'re going to have to use a computer to add a doodle, because I can\'t program on mobile devices for shit! Fortunately, you can still add an image to the wall on your mobile device.'
             });
             return;
         }
@@ -224,7 +224,7 @@ class App extends React.Component {
                             <span className = "heading">{this.state.user.numPieces < this.state.user.maxNumPieces ? "Would You Like to Login with Facebook?" : "Login to Contribute More to the Wall!" }</span>
                             <div className = "force-login-button-container">
                                 {this.state.user.numPieces < this.state.user.maxNumPieces ? <a className = "button" onClick = {this.unAuthLogin}>Hahaha... No.</a> : ""}
-                                {/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? "Sorry, you can't login on a mobile device..." : <FacebookLoginButton login = {this.login}/>}
+                                {/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? "Sorry, you can't login to Facebook on a mobile device..." : <FacebookLoginButton login = {this.login}/>}
                             </div>
                         </div>
                     </article>
