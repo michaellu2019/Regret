@@ -220,7 +220,7 @@ class App extends React.Component {
 
                     <article>
                         <div className = {this.state.showForceLogin && !this.state.loggedIn ? "force-login-container" : "force-login-container hide"}>
-                            {/Android/i.test(navigator.userAgent) ? 
+                            {userAgent.indexOf("android") > -1 ? 
                                 <span className = "heading">Nope... No Android, sorry... Just get on a computer...</span>
                             :
                                 {this.state.user.numPieces >= this.state.user.maxNumPieces ? <span className = "close-window-button" onClick = {this.hidePopUpWindow}>+</span> : ""}
