@@ -45,7 +45,7 @@ class App extends React.Component {
     toggleMode(mode) {
         if ((mode == "doodle") && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             this.setState({
-                errorWindowMsg: 'Sorry, you\'re going to have to use a computer to add a doodle, because I can\'t program on mobile devices for shit! Fortunately, you can still add an image to the wall on your mobile device.'
+                errorWindowMsg: 'You\'re going to have to use a computer to add a doodle, because I can\'t program on mobile devices for shit! Fortunately, you can still select "Add Image" to put an image on the wall with your mobile device.'
             });
             return;
         }

@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/react/css/main.f1764a21.chunk.css",
-    "main.js": "/static/react/js/main.6746b13c.chunk.js",
-    "main.js.map": "/static/react/js/main.6746b13c.chunk.js.map",
+    "main.css": "/static/react/css/main.53f2f3c8.chunk.css",
+    "main.js": "/static/react/js/main.0720b9c9.chunk.js",
+    "main.js.map": "/static/react/js/main.0720b9c9.chunk.js.map",
     "runtime-main.js": "/static/react/js/runtime-main.e1ac87ab.js",
     "runtime-main.js.map": "/static/react/js/runtime-main.e1ac87ab.js.map",
     "js/2.7cae1dd0.chunk.js": "/static/react/js/2.7cae1dd0.chunk.js",
     "js/2.7cae1dd0.chunk.js.map": "/static/react/js/2.7cae1dd0.chunk.js.map",
     "../../templates/index.html": "/static/react/../../templates/index.html",
-    "css/main.f1764a21.chunk.css.map": "/static/react/css/main.f1764a21.chunk.css.map",
+    "css/main.53f2f3c8.chunk.css.map": "/static/react/css/main.53f2f3c8.chunk.css.map",
     "js/2.7cae1dd0.chunk.js.LICENSE.txt": "/static/react/js/2.7cae1dd0.chunk.js.LICENSE.txt",
     "media/index.css": "/static/react/media/room-right.b53e6291.jpg",
-    "precache-manifest.a2b1246cbbd8419336609aa5328a5bcb.js": "/static/react/precache-manifest.a2b1246cbbd8419336609aa5328a5bcb.js",
+    "precache-manifest.d2101e5a736b3b7e01efe34e0e4e0838.js": "/static/react/precache-manifest.d2101e5a736b3b7e01efe34e0e4e0838.js",
     "service-worker.js": "/static/react/service-worker.js"
   },
   "entrypoints": [
     "js/runtime-main.e1ac87ab.js",
     "js/2.7cae1dd0.chunk.js",
-    "css/main.f1764a21.chunk.css",
-    "js/main.6746b13c.chunk.js"
+    "css/main.53f2f3c8.chunk.css",
+    "js/main.0720b9c9.chunk.js"
   ]
 }

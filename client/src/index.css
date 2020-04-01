@@ -542,6 +542,10 @@ main.primary div.content {
 	margin: 1em auto;
 }
 
+.image-to-add-text-input {
+	-webkit-user-select: text;
+}
+
 .image-to-add-container {
 	width: 450px;
 	padding: 1em;
