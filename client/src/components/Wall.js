@@ -527,8 +527,8 @@ class Wall extends React.Component {
 				{this.props.imgToAddSrc && !this.props.imgToAddPlaced ? 
 					<div className = {this.state.imgDragging ? "image-to-add-container hide" : "image-to-add-container"}>
 						<div className = "image-to-add-text-inputs">
-							Title: <input ref = {(ref) => {this.imgTitle = ref}} type = "text" onChange = {() => this.adjustImgProps('title')} /><br />
-							Description: <input ref = {(ref) => {this.imgDescription = ref}} type = "text" onChange = {() => this.adjustImgProps('description')} /><br />
+							Title: <input className = "image-to-add-text-input" ref = {(ref) => {this.imgTitle = ref}} type = "text" onChange = {() => this.adjustImgProps('title')} /><br />
+							Description: <input className = "image-to-add-text-input" ref = {(ref) => {this.imgDescription = ref}} type = "text" onChange = {() => this.adjustImgProps('description')} /><br />
 						</div>
 						Adjust Image Size: <input ref = {(ref) => {this.imgSlider = ref}} type = "range" min = "30" max = "200" onChange = {() => this.adjustImgProps('size')} /><br />
 						
