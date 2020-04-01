@@ -4,7 +4,7 @@
 	src: url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
 }
 
-*:not(input.image-to-add-text-input) {
+* {
 	box-sizing: border-box;
 	-webkit-tap-highlight-color: transparent;
 	-webkit-user-select: none;
@@ -542,8 +542,12 @@ main.primary div.content {
 	margin: 1em auto;
 }
 
-.image-to-add-text-input {
+.image-to-add-text-input, #input-image-url {
 	-webkit-user-select: text;
+	-ms-user-select: text;
+	-moz-user-select: text;
+	-o-user-select: text;
+	user-select: text;
 }
 
 .image-to-add-container {
