@@ -220,12 +220,16 @@ class App extends React.Component {
 
                     <article>
                         <div className = {this.state.showForceLogin && !this.state.loggedIn ? "force-login-container" : "force-login-container hide"}>
-                            {this.state.user.numPieces >= this.state.user.maxNumPieces ? <span className = "close-window-button" onClick = {this.hidePopUpWindow}>+</span> : ""}
-                            <span className = "heading">{this.state.user.numPieces < this.state.user.maxNumPieces ? "Would You Like to Login with Facebook?" : "Login to Contribute More to the Wall!" }</span>
-                            <div className = "force-login-button-container">
-                                {this.state.user.numPieces < this.state.user.maxNumPieces ? <a className = "button" onClick = {this.unAuthLogin}>Hahaha... No.</a> : ""}
-                                {/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? "Sorry, you can't login to Facebook on a mobile device..." : <FacebookLoginButton login = {this.login}/>}
-                            </div>
+                            {/Android/i.test(navigator.userAgent) ? 
+                                <span className = "heading">Nope... No Android, sorry... Just get on a computer...</span>
+                            :
+                                {this.state.user.numPieces >= this.state.user.maxNumPieces ? <span className = "close-window-button" onClick = {this.hidePopUpWindow}>+</span> : ""}
+                                <span className = "heading">{this.state.user.numPieces < this.state.user.maxNumPieces ? "Would You Like to Login with Facebook?" : "Login to Contribute More to the Wall!" }</span>
+                                <div className = "force-login-button-container">
+                                    {this.state.user.numPieces < this.state.user.maxNumPieces ? <a className = "button" onClick = {this.unAuthLogin}>Hahaha... No.</a> : ""}
+                                    {/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? "Sorry, you can't login to Facebook on a mobile device..." : <FacebookLoginButton login = {this.login}/>}
+                                </div>
+                            }
                         </div>
                     </article>
 
