@@ -45,7 +45,7 @@ class App extends React.Component {
     toggleMode(mode) {
         if ((mode == "doodle") && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             this.setState({
-                errorWindowMsg: 'You\'re going to have to use a computer to add a doodle, because I can\'t program on mobile devices for shit! Fortunately, you can still select "Add Image" to put an image on the wall with your mobile device.'
+                errorWindowMsg: 'You\'re going to have to use a computer to add a doodle, because I can\'t program on mobile devices! Fortunately, you can still select "Add Image" to put an image on the wall with your mobile device.'
             });
             return;
         }
@@ -61,7 +61,7 @@ class App extends React.Component {
             });
         } else if (mode != 'view' && this.state.user.numPieces >= this.state.user.maxNumPieces && !this.state.user.fbId.includes('unauth_user')) {
             this.setState({
-                errorWindowMsg: 'You\'ve reached the maximum number of pieces that you can add to the wall! Congratu-fucking-lations!'
+                errorWindowMsg: 'You\'ve reached the maximum number of pieces that you can add to the wall! Congratulations!'
             });
         }
     }
